@@ -1,5 +1,8 @@
 const Discord = require('discord.js')
 const client = new Discord.Client()
+var fs = require('fs')
+var text = fs.readFileSync('./Properties')
+var bot_secret_token = text.slice(':')
 
 client.on('ready', () => {
     console.log("Connected as " + client.user.tag)
@@ -74,6 +77,8 @@ function multiplyCommand(arguments, receivedMessage) {
 // Get your bot's secret token from:
 // https://discordapp.com/developers/applications/
 // Click on your application -> Bot -> Token -> "Click to Reveal Token"
-bot_secret_token = "NjEzODk4NTE4MTkyNDU1Njg1.XV3q3w.tQFlySCGcKMtb-_QJJi87rIA1Fo"
+// Create file call Properties containing the following:
+// secret_key: xxxxxxxxx
+// Replace xxxxxxxxx with the secret key
 
 client.login(bot_secret_token)
